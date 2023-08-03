@@ -115,11 +115,10 @@ public class JiraAPICloudTest {
 					.post("/rest/api/3/issue");
 			// response.then().assertThat().statusCode(201).log().all();
 
-
-			Assert.assertEquals(response.statusCode(), 201);
 			if (response.statusCode() == 400) {
 				System.out.println("Error Response Body: " + response.getBody().asString());
 			}
+			Assert.assertEquals(response.statusCode(), 201);
 
 			// storyId = response.body().jsonPath().getString("id");
 			issueId = response.body().jsonPath().getString(("id"));
@@ -129,8 +128,6 @@ public class JiraAPICloudTest {
 
 		@Test(priority = 3)
 		public void testEditIssueSummaryApi() {
-			// Assuming you already have the 'issueId' value for the issue you want to edit
-			// String issueId = "ABC-123"; // Replace this with the actual issue ID
 
 			// Create the request body for updating the summary
 			JsonObject updateSummaryRequest = new JsonObject();
@@ -158,6 +155,7 @@ public class JiraAPICloudTest {
 
 			// Print the response body for debugging
 			String responseBody = response.getBody().asString();
+
 			System.out.println("Response Body: " + responseBody);
 		}
 

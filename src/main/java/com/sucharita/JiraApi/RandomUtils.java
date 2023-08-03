@@ -9,6 +9,7 @@ public class RandomUtils {
 		StringBuilder sb = new StringBuilder();
 		Random random = new Random();
 		for (int i = 0; i < length; i++) {
+			// int index = random.nextInt(characters.length());
 			int index = random.nextInt(characters.length());
 			sb.append(characters.charAt(index));
 		}
